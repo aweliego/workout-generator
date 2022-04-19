@@ -6,7 +6,7 @@ import WorkoutList from '../WorkoutList/WorkoutList';
 const App = () => {
   return (
     <div className="App">
-      <h2>B&B Workout Generator</h2>
+      <h1>B&B Workout Generator</h1>
       <Form />
       <WorkoutList />
     </div>

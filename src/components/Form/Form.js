@@ -3,44 +3,42 @@ import './Form.css';
 
 const Form = () => {
   return (
-    <div className="Form">
-      <form onSubmit="" className="">
+    <div className="Form-container">
+      <form className="Form">
         <div className="form-group">
-          <fieldset>
             <legend>Choose your workout type:</legend>
             <input
               type="radio"
               name="workout-type"
               value="Cardio"
-              class="input-radio"
+              className="input-radio"
             />
-            <label for="Cardio">Cardio</label>
+            <label htmlFor="Cardio">Cardio</label>
             <br />
             <input
               type="radio"
               name="workout-type"
               value="Strength"
-              class="input-radio"
+              className="input-radio"
             />
-            <label for="Strength">Strength</label>
+            <label htmlFor="Strength">Strength</label>
             <br />
             <input
               type="radio"
               name="workout-type"
               value="Mobility"
-              class="input-radio"
+              className="input-radio"
             />
-            <label for="Mobility">Mobility</label>
-          </fieldset>
+            <label htmlFor="Mobility">Mobility</label>
         </div>
         <div className="form-group">
-          <label for="app">Choose the workout focus:</label>
+          <label htmlFor="app">Choose the workout focus:</label>
           <br />
           <input
             type="checkbox"
             name="workout-focus"
             value="Above the belt"
-            class="input-checkbox"
+            className="input-checkbox"
           />
           Above the belt
           <br />
@@ -48,7 +46,7 @@ const Form = () => {
             type="checkbox"
             name="workout-focus"
             value="Below the belt"
-            class="input-checkbox"
+            className="input-checkbox"
           />
           Below the belt
           <br />
@@ -56,7 +54,7 @@ const Form = () => {
             type="checkbox"
             name="workout-focus"
             value="Abs"
-            class="input-checkbox"
+            className="input-checkbox"
           />
           Abs
           <br />
@@ -64,13 +62,12 @@ const Form = () => {
             type="checkbox"
             name="workout-focus"
             value="Full body"
-            class="input-checkbox"
+            className="input-checkbox"
           />
           Full body
           <br />
         </div>
         <div className="form-group">
-          <fieldset>
             <legend>
               Workout level <small>(optional)</small>
             </legend>
@@ -78,29 +75,28 @@ const Form = () => {
               type="radio"
               name="workout-level"
               value="Beginner"
-              class="input-radio"
+              className="input-radio"
             />
-            <label for="Beginner">Beginner</label>
+            <label htmlFor="Beginner">Beginner</label>
             <br />
             <input
               type="radio"
               name="workout-level"
               value="Intermediate"
-              class="input-radio"
+              className="input-radio"
             />
-            <label for="Intermediate">Intermediate</label>
+            <label htmlFor="Intermediate">Intermediate</label>
             <br />
             <input
               type="radio"
               name="workout-level"
               value="Advanced"
-              class="input-radio"
+              className="input-radio"
             />
-            <label for="Advanced">Advanced</label>
-          </fieldset>
+            <label htmlFor="Advanced">Advanced</label>
         </div>
         <div className="form-group">
-          <label for="app">
+          <label htmlFor="equipment">
             Equipment <small>(optional)</small>:
           </label>
           <br />
@@ -108,7 +104,7 @@ const Form = () => {
             type="checkbox"
             name="equipment"
             value="Heavyweights"
-            class="input-checkbox"
+            className="input-checkbox"
           />
           Heavyweights
           <br />
@@ -116,7 +112,7 @@ const Form = () => {
             type="checkbox"
             name="equipment"
             value="Kettlebell"
-            class="input-checkbox"
+            className="input-checkbox"
           />
           Kettlebell
           <br />
@@ -124,7 +120,7 @@ const Form = () => {
             type="checkbox"
             name="equipment"
             value="Resistance band"
-            class="input-checkbox"
+            className="input-checkbox"
           />
           Resistance band
           <br />
@@ -132,7 +128,7 @@ const Form = () => {
             type="checkbox"
             name="equipment"
             value="Jump rope"
-            class="input-checkbox"
+            className="input-checkbox"
           />
           Jump rope
           <br />
@@ -140,7 +136,7 @@ const Form = () => {
             type="checkbox"
             name="equipment"
             value="Boxing bag"
-            class="input-checkbox"
+            className="input-checkbox"
           />
           Boxing bag
           <br />
@@ -148,7 +144,7 @@ const Form = () => {
             type="checkbox"
             name="equipment"
             value="Gliders"
-            class="input-checkbox"
+            className="input-checkbox"
           />
           Gliders
           <br />
@@ -156,7 +152,7 @@ const Form = () => {
             type="checkbox"
             name="equipment"
             value="Chair"
-            class="input-checkbox"
+            className="input-checkbox"
           />
           Chair
           <br />
@@ -164,13 +160,12 @@ const Form = () => {
             type="checkbox"
             name="equipment"
             value="Equipment free"
-            class="input-checkbox"
+            className="input-checkbox"
           />
           Equipment free
           <br />
         </div>
         <div className="form-group">
-          <fieldset>
             <legend>
               Duration <small>(optional)</small>
             </legend>
@@ -178,28 +173,28 @@ const Form = () => {
               type="radio"
               name="workout-duration"
               value="Short"
-              class="input-radio"
+              className="input-radio"
             />
-            <label for="Short">Short ({'<'} 25 min)</label>
+            <label htmlFor="Short">Short ({'<'} 25 min)</label>
             <br />
             <input
               type="radio"
               name="workout-duration"
               value="Average"
-              class="input-radio"
+              className="input-radio"
             />
-            <label for="Average">Average (25 - 45 min)</label>
+            <label htmlFor="Average">Average (25 - 45 min)</label>
             <br />
             <input
               type="radio"
               name="workout-duration"
               value="Long"
-              class="input-radio"
+              className="input-radio"
             />
-            <label for="Long">Long ({'>'} 45 min)</label>
-          </fieldset>
+            <label htmlFor="Long">Long ({'>'} 45 min)</label>
         </div>
       </form>
+      <input type="submit" value="Let's Go!" className="Form-submit" />
     </div>
   );
 };

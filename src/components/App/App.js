@@ -33,6 +33,19 @@ const App = () => {
       imgSrc:
         'https://christadipaolo.com/boxing-and-bubbles/images/thumb/new_thumbs/1628446683.jpg',
     },
+    {
+      id: generateId(),
+      category: 'The Undercard',
+      type: 'mobility',
+      focus: 'below the belt',
+      level: 'beginner',
+      equipment: 'chair',
+      duration: 'short',
+      videoSrc:
+        'https://christadipaolo.com/boxing-and-bubbles/player.php?data_load_id=245',
+      imgSrc:
+        'https://christadipaolo.com/boxing-and-bubbles/images/thumb/new_thumbs/1610904719.jpg',
+    },
   ]);
 
   return (

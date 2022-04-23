@@ -4,14 +4,14 @@ import Workout from '../Workout/Workout';
 
 const WorkoutList = (props) => {
   return (
-    <div className="WorkoutList">
+    <>
       <h2>Here's what we suggest:</h2>
-      <div>
+      <div className="WorkoutList">
         {props.workouts.map((workout) => (
           <Workout key={workout.id} workout={workout} />
         ))}
       </div>
-    </div>
+    </>
   );
 };
 

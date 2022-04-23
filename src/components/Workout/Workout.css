@@ -1,0 +1,11 @@
+.Workout {
+    margin: 1rem;
+    width: 420px;
+}
+
+.Workout a img {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+    object-fit: contain;
+}

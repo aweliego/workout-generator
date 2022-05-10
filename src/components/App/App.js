@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Form from '../Form/Form';
 import WorkoutList from '../WorkoutList/WorkoutList';
@@ -48,10 +48,22 @@ const App = () => {
     },
   ]);
 
+  const [criteria, setCriteria] = useState([]);
+
+  const defineCriteria = (criteria) => setCriteria(criteria);
+
+  useEffect(() => {
+    defineCriteria(criteria);
+    // establish logic in a separate, imported search()function
+    // eg if criteria includes equipment, filter all workouts that have equipment value not set to equipment free
+    // for each conditional, return setWorkouts(workouts.filter()) to set the array of selected workouts in state
+    //console.log(criteria);
+  }, [criteria]);
+
   return (
     <div className="App">
       <h1>B&B Workout Generator</h1>
-      <Form />
+      <Form handleSubmit={defineCriteria} />
       <WorkoutList workouts={workouts} />
     </div>
   );

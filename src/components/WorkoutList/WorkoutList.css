@@ -1,6 +1,5 @@
-/* Toggle to display flex on click Let's go button */
 .WorkoutList {
-  display: none;
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
@@ -8,5 +7,5 @@
 
 /* Toggle to display block on click Let's go button */
 h2 {
-    display: none;
+  display: none;
 }

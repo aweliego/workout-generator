@@ -1,200 +1,184 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Form.css';
+import {
+  workoutTypes,
+  workoutFocus,
+  workoutLevels,
+  equipments,
+  workoutDurations,
+} from '../../util/criteria';
 
-const Form = () => {
+const Form = (props) => {
+  const [checkedType, setType] = useState(
+    new Array(workoutTypes.length).fill(false)
+  );
+  const [checkedFocus, setFocus] = useState(
+    new Array(workoutFocus.length).fill(false)
+  );
+  const [checkedLevel, setLevel] = useState(
+    new Array(workoutLevels.length).fill(false)
+  );
+  const [checkedEquipment, setEquipment] = useState(
+    new Array(equipments.length).fill(false)
+  );
+  const [checkedDuration, setDuration] = useState(
+    new Array(workoutDurations.length).fill(false)
+  );
+
+  console.log('This is the types array: ' + checkedType);
+  console.log('This is the focus array: ' + checkedFocus);
+
+  const handleChange = (position) => {
+    // const updatedCheckedType = checkedType.map((criteria, index) =>
+    //   index === position ? !criteria : criteria
+    // );
+    // setType(updatedCheckedType);
+    // console.log('This is the updatedCheckedType array: ' + updatedCheckedType);
+
+    const updatedCheckedFocus = checkedFocus.map((criteria, index) =>
+      index === position ? !criteria : criteria
+    );
+    setType(updatedCheckedFocus);
+    console.log(
+      'This is the updatedCheckedFocus array: ' + updatedCheckedFocus
+    );
+  };
+
+  const { defineCriteria } = props;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="Form-container">
       <form className="Form">
+        {/* TYPE */}
         <div className="form-group">
-            <legend>Choose your workout type:</legend>
-            <input
-              type="radio"
-              name="workout-type"
-              value="Cardio"
-              className="input-radio"
-            />
-            <label htmlFor="Cardio">Cardio</label>
-            <br />
-            <input
-              type="radio"
-              name="workout-type"
-              value="Strength"
-              className="input-radio"
-            />
-            <label htmlFor="Strength">Strength</label>
-            <br />
-            <input
-              type="radio"
-              name="workout-type"
-              value="Mobility"
-              className="input-radio"
-            />
-            <label htmlFor="Mobility">Mobility</label>
+          <legend>Choose your workout type:</legend>
+          {workoutTypes.map(({ name, label }, index) => {
+            return (
+              <>
+                <input
+                  id={`custom-checkbox-${index}`}
+                  type="radio"
+                  name={name}
+                  value={name}
+                  className="input-radio"
+                  checked={checkedType[index]}
+                  onChange={() => handleChange(index)}
+                />
+                <label htmlFor="{label}">{label}</label>
+                <br />
+              </>
+            );
+          })}
         </div>
+
+        {/* FOCUS */}
         <div className="form-group">
-          <label htmlFor="app">Choose the workout focus:</label>
+          <label htmlFor="workout-focus">Choose the workout focus:</label>
           <br />
-          <input
-            type="checkbox"
-            name="workout-focus"
-            value="Above the belt"
-            className="input-checkbox"
-          />
-          Above the belt
-          <br />
-          <input
-            type="checkbox"
-            name="workout-focus"
-            value="Below the belt"
-            className="input-checkbox"
-          />
-          Below the belt
-          <br />
-          <input
-            type="checkbox"
-            name="workout-focus"
-            value="Abs"
-            className="input-checkbox"
-          />
-          Abs
-          <br />
-          <input
-            type="checkbox"
-            name="workout-focus"
-            value="Full body"
-            className="input-checkbox"
-          />
-          Full body
-          <br />
+          {workoutFocus.map(({ name }, index) => {
+            return (
+              <>
+                <input
+                  id={`custom-checkbox-${index}`}
+                  type="checkbox"
+                  name={name}
+                  value={name}
+                  className="input-checkbox"
+                  checked={checkedFocus[index]}
+                  onChange={() => handleChange(index)}
+                />
+                {name}
+                <br />
+              </>
+            );
+          })}
         </div>
+
+        {/* LEVELS */}
         <div className="form-group">
-            <legend>
-              Workout level <small>(optional)</small>
-            </legend>
-            <input
-              type="radio"
-              name="workout-level"
-              value="Beginner"
-              className="input-radio"
-            />
-            <label htmlFor="Beginner">Beginner</label>
-            <br />
-            <input
-              type="radio"
-              name="workout-level"
-              value="Intermediate"
-              className="input-radio"
-            />
-            <label htmlFor="Intermediate">Intermediate</label>
-            <br />
-            <input
-              type="radio"
-              name="workout-level"
-              value="Advanced"
-              className="input-radio"
-            />
-            <label htmlFor="Advanced">Advanced</label>
+          <legend>
+            Workout level <small>(optional)</small>
+          </legend>
+          {workoutLevels.map(({ name, label }, index) => {
+            return (
+              <>
+                <input
+                  id={`custom-checkbox-${index}`}
+                  type="radio"
+                  name={name}
+                  value={name}
+                  className="input-radio"
+                  checked={checkedLevel[index]}
+                  // onChange={() => handleChange(index)}
+                />
+                <label htmlFor="{label}">{label}</label>
+                <br />
+              </>
+            );
+          })}
         </div>
+
+        {/* EQUIPMENT */}
         <div className="form-group">
           <label htmlFor="equipment">
             Equipment <small>(optional)</small>:
           </label>
           <br />
-          <input
-            type="checkbox"
-            name="equipment"
-            value="Heavyweights"
-            className="input-checkbox"
-          />
-          Heavyweights
-          <br />
-          <input
-            type="checkbox"
-            name="equipment"
-            value="Kettlebell"
-            className="input-checkbox"
-          />
-          Kettlebell
-          <br />
-          <input
-            type="checkbox"
-            name="equipment"
-            value="Resistance band"
-            className="input-checkbox"
-          />
-          Resistance band
-          <br />
-          <input
-            type="checkbox"
-            name="equipment"
-            value="Jump rope"
-            className="input-checkbox"
-          />
-          Jump rope
-          <br />
-          <input
-            type="checkbox"
-            name="equipment"
-            value="Boxing bag"
-            className="input-checkbox"
-          />
-          Boxing bag
-          <br />
-          <input
-            type="checkbox"
-            name="equipment"
-            value="Gliders"
-            className="input-checkbox"
-          />
-          Gliders
-          <br />
-          <input
-            type="checkbox"
-            name="equipment"
-            value="Chair"
-            className="input-checkbox"
-          />
-          Chair
-          <br />
-          <input
-            type="checkbox"
-            name="equipment"
-            value="Equipment free"
-            className="input-checkbox"
-          />
-          Equipment free
-          <br />
+          {equipments.map(({ name }, index) => {
+            return (
+              <>
+                <input
+                  id={`custom-checkbox-${index}`}
+                  type="checkbox"
+                  name={name}
+                  value={name}
+                  className="input-checkbox"
+                  checked={checkedEquipment[index]}
+                  // onChange={() => handleChange(index)}
+                />
+                {name}
+                <br />
+              </>
+            );
+          })}
         </div>
+
+        {/* DURATION */}
         <div className="form-group">
-            <legend>
-              Duration <small>(optional)</small>
-            </legend>
-            <input
-              type="radio"
-              name="workout-duration"
-              value="Short"
-              className="input-radio"
-            />
-            <label htmlFor="Short">Short ({'<'} 25 min)</label>
-            <br />
-            <input
-              type="radio"
-              name="workout-duration"
-              value="Average"
-              className="input-radio"
-            />
-            <label htmlFor="Average">Average (25 - 45 min)</label>
-            <br />
-            <input
-              type="radio"
-              name="workout-duration"
-              value="Long"
-              className="input-radio"
-            />
-            <label htmlFor="Long">Long ({'>'} 45 min)</label>
+          <legend>
+            Duration <small>(optional)</small>
+          </legend>
+          {workoutDurations.map(({ name, label }, index) => {
+            return (
+              <>
+                <input
+                  id={`custom-checkbox-${index}`}
+                  type="radio"
+                  name={name}
+                  value={name}
+                  className="input-radio"
+                  checked={checkedDuration[index]}
+                  // onChange={() => handleChange(index)}
+                />
+                <label htmlFor="{label}">{label}</label>
+                <br />
+              </>
+            );
+          })}
         </div>
       </form>
-      <input type="submit" value="Let's Go!" className="Form-submit" />
+
+      {/* SUBMIT */}
+      <input
+        type="submit"
+        value="Let's Go!"
+        className="Form-submit"
+        onClick={handleSubmit}
+      />
     </div>
   );
 };
